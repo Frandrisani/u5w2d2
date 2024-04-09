@@ -1,9 +1,12 @@
 package francescoandrisani.u5w2d2.services;
 
 import francescoandrisani.u5w2d2.entities.BlogPost;
+import francescoandrisani.u5w2d2.exceptions.NotFound;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -18,7 +21,14 @@ public class BlogPostService {
     // ---------------------------------------------------
 
     // 2 - GET /blogPosts/id => ritorna il blog post con id specificato
-
+    public BlogPost getBlogPost(int id) {
+        for (BlogPost post : this.postList) {
+            if (post.getId() == id) {
+                return post;
+            }
+        }
+        throw new NotFound(id);
+    }
 
     // ---------------------------------------------------
 
@@ -31,6 +41,31 @@ public class BlogPostService {
     }
     // ---------------------------------------------------
 
+    // 4 - PUT /blogPosts/id => modifica il blog post con id specificato
+    public BlogPost findByIdAndUpdate(int id, BlogPost updatedPost){
+        for (BlogPost post : this.postList) {
+            if (post.getId() == id) {
+                post.setTitle(updatedPost.getTitle());
+                post.setContent(updatedPost.getContent());
+                post.setTimeForLecture(updatedPost.getTimeForLecture());
+                return post;
+            }
+        }
+        throw new NotFound(id);
+    }
+    // ---------------------------------------------------
 
+    // 5 - DELETE /blogPosts/id => elimina il blog post con id specificato
+    public void findByIdAndDelete(int id) {
+        Iterator<BlogPost> iterator = this.postList.iterator();
+        while (iterator.hasNext()) {
+            BlogPost current = iterator.next();
+            if (current.getId() == id) {
+                iterator.remove();
 
+            }
+
+        }
+
+    }
 }
