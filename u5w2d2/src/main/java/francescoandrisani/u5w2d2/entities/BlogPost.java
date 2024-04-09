@@ -17,13 +17,13 @@ public class BlogPost {
     private int timeForLecture;
     private String cover;
 
-    public BlogPost(int id, String category, String title, String content, int timeForLecture) {
+    public BlogPost(int id, String category, String title, String content, int timeForLecture, String cover) {
         this.id = id;
         this.category = category;
         this.title = title;
         this.content = content;
         this.timeForLecture = timeForLecture;
-        this.cover = "https://picsum.photos/200/300";
+        this.cover = cover;
     }
 
 }

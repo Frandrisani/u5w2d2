@@ -36,6 +36,7 @@ public class BlogPostService {
     public BlogPost addBlogPost(BlogPost body) {
         Random random = new Random();
         body.setId(random.nextInt(1,100));
+        body.setCover("https://picsum.photos/200/300");
         this.postList.add(body);
         return body;
     }

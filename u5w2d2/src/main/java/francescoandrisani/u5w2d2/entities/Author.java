@@ -16,16 +16,16 @@ public class Author {
     private String name;
     private String surname;
     private String email;
-    private LocalDate birthDate;
+    private String birthDate;
     private String avatar;
 
 
-    public Author(int id, String name, String surname, String email, LocalDate birthDate, String avatar) {
+    public Author(int id, String name, String surname, String email, String birthDate, String avatar) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.birthDate = birthDate;
-        this.avatar = "https://ui-avatars.com/api/?name="+ this.name + "+"+ this.surname;
+        this.avatar = avatar;
     }
 }
