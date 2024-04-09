@@ -14,10 +14,10 @@ public class BlogPost {
     private String category;
     private String title;
     private String content;
-    private LocalTime timeForLecture;
+    private int timeForLecture;
     private String cover;
 
-    public BlogPost(int id, String category, String title, String content, LocalTime timeForLecture, String cover) {
+    public BlogPost(int id, String category, String title, String content, int timeForLecture) {
         this.id = id;
         this.category = category;
         this.title = title;
